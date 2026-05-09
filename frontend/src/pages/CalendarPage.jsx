@@ -61,12 +61,8 @@ export function CalendarPage({ habits, darkMode }) {
   return (
     <div className="space-y-6 max-w-7xl mx-auto relative"> {/* Thêm relative */}
       {/* Header */}
-      <div className={`${boxClass} flex flex-col md:flex-row md:items-center justify-between gap-4 bg-gradient-to-r from-blue-50/50 to-transparent dark:from-blue-900/10`}>
+      <div className={`${boxClass} flex flex-col md:flex-row md:items-center justify-between gap-4`}>
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-xs font-medium mb-3">
-            <Calendar className="w-4 h-4" />
-            <span>Lịch sử 84 ngày qua</span>
-          </div>
           <h2 className={`text-3xl ${textClass} font-extrabold tracking-tight`}>Hành trình của bạn</h2>
           <p className={`${darkMode ? 'text-gray-400' : 'text-gray-500'} mt-1`}>
             Nhìn lại những nỗ lực bạn đã bỏ ra qua biểu đồ nhiệt (Heatmap)
