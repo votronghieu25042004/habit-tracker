@@ -63,75 +63,71 @@ export function StatisticsPage({ habits, darkMode }) {
   return (
     <div className="space-y-6 max-w-7xl mx-auto">
       {/* Header section theo phong cách Bento */}
-      <div className={`${boxClass} p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-gradient-to-r from-orange-50/50 to-transparent dark:from-orange-900/10`}>
-        <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 text-xs font-medium mb-3">
-            <Activity className="w-4 h-4" />
-            <span>Phân tích dữ liệu</span>
-          </div>
-          <h2 className={`text-3xl ${textClass} font-extrabold tracking-tight`}>Gương mặt vàng trong làng kỷ luật</h2>
-          <p className={`${darkMode ? 'text-gray-400' : 'text-gray-500'} mt-1`}>
-            Phân tích chi tiết về tiến trình và hiệu suất của bạn qua những con số biết nói.
-          </p>
-        </div>
-      </div>
+      <div className={`${boxClass} p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-4`}>
+  <div>
+    <h2 className={`text-3xl ${textClass} font-extrabold tracking-tight`}>Gương mặt vàng trong làng kỷ luật</h2>
+    <p className={`${darkMode ? 'text-gray-400' : 'text-gray-500'} mt-1`}>
+      Phân tích chi tiết về tiến trình và hiệu suất của bạn qua những con số biết nói.
+    </p>
+  </div>
+</div>
 
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-6">
         {/* Cột trái (Chỉ số nhanh + Biểu đồ 30 ngày) chiếm 7 cột */}
         <div className="xl:col-span-7 space-y-6">
           
           {/* Lưới 4 ô Bento nhỏ */}
-          <div className="grid grid-cols-2 gap-4 sm:gap-6">
-            <div className={`${boxClass} p-6 flex flex-col items-start justify-between bg-blue-50/30 dark:bg-blue-900/10 hover:shadow-md transition-shadow`}>
-              <div className="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center mb-4">
-                <Target className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-              </div>
-              <div>
-                <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'} font-medium`}>Tổng hoàn thành</p>
-                <p className={`text-3xl sm:text-4xl ${textClass} font-black tracking-tight mt-1`}>{totalCompleted}</p>
-                <p className={`text-xs ${darkMode ? 'text-gray-500' : 'text-gray-400'} mt-2`}>Tất cả thời gian</p>
-              </div>
-            </div>
+<div className="grid grid-cols-2 gap-4 sm:gap-6">
+  <div className={`${boxClass} p-6 flex flex-col gap-4 hover:shadow-md transition-shadow`}>
+    <div className="w-11 h-11 rounded-xl bg-blue-600 flex items-center justify-center">
+      <Target className="w-5 h-5 text-white" />
+    </div>
+    <div>
+      <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'} font-medium`}>Tổng hoàn thành</p>
+      <p className={`text-3xl sm:text-4xl ${textClass} font-black tracking-tight mt-1`}>{totalCompleted}</p>
+      <p className={`text-xs ${darkMode ? 'text-gray-500' : 'text-gray-400'} mt-1`}>Tất cả thời gian</p>
+    </div>
+  </div>
 
-            <div className={`${boxClass} p-6 flex flex-col items-start justify-between bg-orange-50/30 dark:bg-orange-900/10 hover:shadow-md transition-shadow`}>
-              <div className="w-12 h-12 rounded-2xl bg-orange-100 dark:bg-orange-900/40 flex items-center justify-center mb-4">
-                <Flame className="w-6 h-6 text-orange-600 dark:text-orange-400" />
-              </div>
-              <div>
-                <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'} font-medium`}>Tổng chuỗi ngày</p>
-                <p className={`text-3xl sm:text-4xl ${textClass} font-black tracking-tight mt-1`}>{totalStreak}</p>
-                <p className={`text-xs ${darkMode ? 'text-gray-500' : 'text-gray-400'} mt-2`}>Ngày liên tiếp</p>
-              </div>
-            </div>
+  <div className={`${boxClass} p-6 flex flex-col gap-4 hover:shadow-md transition-shadow`}>
+    <div className="w-11 h-11 rounded-xl bg-orange-500 flex items-center justify-center">
+      <Flame className="w-5 h-5 text-white" />
+    </div>
+    <div>
+      <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'} font-medium`}>Tổng chuỗi ngày</p>
+      <p className={`text-3xl sm:text-4xl ${textClass} font-black tracking-tight mt-1`}>{totalStreak}</p>
+      <p className={`text-xs ${darkMode ? 'text-gray-500' : 'text-gray-400'} mt-1`}>Ngày liên tiếp</p>
+    </div>
+  </div>
 
-            <div className={`${boxClass} p-6 flex flex-col items-start justify-between bg-green-50/30 dark:bg-green-900/10 hover:shadow-md transition-shadow`}>
-              <div className="w-12 h-12 rounded-2xl bg-green-100 dark:bg-green-900/40 flex items-center justify-center mb-4">
-                <TrendingUp className="w-6 h-6 text-green-600 dark:text-green-400" />
-              </div>
-              <div>
-                <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'} font-medium`}>Xu hướng tuần</p>
-                <p className={`text-3xl sm:text-4xl ${textClass} font-black tracking-tight mt-1`}>
-                  {weekTrend > 0 ? '+' : ''}{weekTrend}
-                </p>
-                <p className={`text-xs ${darkMode ? 'text-gray-500' : 'text-gray-400'} mt-2`}>So với tuần trước</p>
-              </div>
-            </div>
+  <div className={`${boxClass} p-6 flex flex-col gap-4 hover:shadow-md transition-shadow`}>
+    <div className="w-11 h-11 rounded-xl bg-emerald-500 flex items-center justify-center">
+      <TrendingUp className="w-5 h-5 text-white" />
+    </div>
+    <div>
+      <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'} font-medium`}>Xu hướng tuần</p>
+      <p className={`text-3xl sm:text-4xl ${textClass} font-black tracking-tight mt-1`}>
+        {weekTrend > 0 ? '+' : ''}{weekTrend}
+      </p>
+      <p className={`text-xs ${darkMode ? 'text-gray-500' : 'text-gray-400'} mt-1`}>So với tuần trước</p>
+    </div>
+  </div>
 
-            <div className={`${boxClass} p-6 flex flex-col items-start justify-between bg-purple-50/30 dark:bg-purple-900/10 hover:shadow-md transition-shadow`}>
-              <div className="w-12 h-12 rounded-2xl bg-purple-100 dark:bg-purple-900/40 flex items-center justify-center mb-4">
-                <Award className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-              </div>
-              <div className="w-full">
-                <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'} font-medium`}>Top thói quen</p>
-                <p className={`text-lg sm:text-xl ${textClass} font-bold tracking-tight mt-1 truncate w-full`} title={bestHabit?.name || 'N/A'}>
-                  {bestHabit?.name || 'N/A'}
-                </p>
-                <p className={`text-xs ${darkMode ? 'text-gray-500' : 'text-gray-400'} mt-2`}>
-                  {bestHabit?.streak || 0} ngày chuỗi
-                </p>
-              </div>
-            </div>
-          </div>
+  <div className={`${boxClass} p-6 flex flex-col gap-4 hover:shadow-md transition-shadow`}>
+    <div className="w-11 h-11 rounded-xl bg-violet-600 flex items-center justify-center">
+      <Award className="w-5 h-5 text-white" />
+    </div>
+    <div className="w-full">
+      <p className={`text-sm ${darkMode ? 'text-gray-400' : 'text-gray-500'} font-medium`}>Top thói quen</p>
+      <p className={`text-lg sm:text-xl ${textClass} font-bold tracking-tight mt-1 truncate w-full`} title={bestHabit?.name || 'N/A'}>
+        {bestHabit?.name || 'N/A'}
+      </p>
+      <p className={`text-xs ${darkMode ? 'text-gray-500' : 'text-gray-400'} mt-1`}>
+        {bestHabit?.streak || 0} ngày chuỗi
+      </p>
+    </div>
+  </div>
+</div>
 
           {/* Biểu đồ 30 ngày (Bento dẹt) */}
           <div className={`${boxClass} p-6 md:p-8`}>

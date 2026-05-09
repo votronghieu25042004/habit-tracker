@@ -28,18 +28,12 @@ export function SettingsPage({
   return (
     <div className="space-y-6 max-w-4xl mx-auto">
       {/* Header section theo phong cách Bento */}
-      <div className={`${boxClass} p-6 md:p-8 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-gradient-to-r from-purple-50/50 to-transparent dark:from-purple-900/10`}>
-        <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 text-xs font-medium mb-3">
-            <ShieldCheck className="w-4 h-4" />
-            <span>Trung tâm điều khiển</span>
-          </div>
-          <h2 className={`text-3xl ${textClass} font-extrabold tracking-tight`}>Cài đặt hệ thống</h2>
-          <p className={`${darkMode ? 'text-gray-400' : 'text-gray-500'} mt-1`}>
-            Tùy chỉnh trải nghiệm Habit Tracker theo cách riêng của bạn.
-          </p>
-        </div>
-      </div>
+      <div className={`${boxClass} p-6 md:p-8`}>
+  <h2 className={`text-3xl ${textClass} font-extrabold tracking-tight`}>Cài đặt hệ thống</h2>
+  <p className={`${darkMode ? 'text-gray-400' : 'text-gray-500'} mt-1`}>
+    Tùy chỉnh trải nghiệm Habit Tracker theo cách riêng của bạn.
+  </p>
+</div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         
@@ -47,7 +41,7 @@ export function SettingsPage({
         <div className="space-y-6">
           {/* Appearance */}
           <div className={boxClass}>
-            <div className={`px-6 py-5 border-b ${borderClass} bg-gray-50/50 dark:bg-gray-800/50 flex items-center gap-3`}>
+           <div className={`px-6 py-5 border-b ${borderClass} flex items-center gap-3`}>
               <PaintBucket className="w-5 h-5 text-blue-500" />
               <h3 className={`text-lg ${textClass} font-bold`}>Giao diện</h3>
             </div>
@@ -84,7 +78,7 @@ export function SettingsPage({
 
           {/* Privacy & Security */}
           <div className={boxClass}>
-            <div className={`px-6 py-5 border-b ${borderClass} bg-gray-50/50 dark:bg-gray-800/50 flex items-center gap-3`}>
+            <div className={`px-6 py-5 border-b ${borderClass} flex items-center gap-3`}>
               <Lock className="w-5 h-5 text-red-500" />
               <h3 className={`text-lg ${textClass} font-bold`}>Bảo mật & Riêng tư</h3>
             </div>
@@ -92,7 +86,7 @@ export function SettingsPage({
             <div className="p-6 space-y-5">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-red-100 dark:bg-red-900/30 flex items-center justify-center text-red-600 dark:text-red-400">
+                  <div className="w-10 h-10 rounded-xl bg-red-100 dark:bg-red-100 flex items-center justify-center text-red-600 dark:text-red-400">
                     <Lock className="w-5 h-5" />
                   </div>
                   <div>
@@ -129,7 +123,7 @@ export function SettingsPage({
         <div className="space-y-6">
           {/* Notifications */}
           <div className={boxClass}>
-            <div className={`px-6 py-5 border-b ${borderClass} bg-gray-50/50 dark:bg-gray-800/50 flex items-center gap-3`}>
+            <div className={`px-6 py-5 border-b ${borderClass} flex items-center gap-3`}>
               <Bell className="w-5 h-5 text-green-500" />
               <h3 className={`text-lg ${textClass} font-bold`}>Thông báo</h3>
             </div>
@@ -137,7 +131,7 @@ export function SettingsPage({
             <div className="p-6">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400">
+                  <div className="w-10 h-10 rounded-xl bg-green-100 dark:bg-green-100 flex items-center justify-center text-green-600 dark:text-green-400">
                     <Bell className="w-5 h-5" />
                   </div>
                   <div>
@@ -165,7 +159,7 @@ export function SettingsPage({
 
           {/* Data Management */}
           <div className={boxClass}>
-            <div className={`px-6 py-5 border-b ${borderClass} bg-gray-50/50 dark:bg-gray-800/50 flex items-center gap-3`}>
+            <div className={`px-6 py-5 border-b ${borderClass} flex items-center gap-3`}>
               <Database className="w-5 h-5 text-orange-500" />
               <h3 className={`text-lg ${textClass} font-bold`}>Quản lý dữ liệu</h3>
             </div>
@@ -175,14 +169,14 @@ export function SettingsPage({
                 onClick={onExportData}
                 className={`w-full flex items-center gap-3 px-5 py-4 border-2 border-dashed ${borderClass} rounded-2xl hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all font-semibold ${textClass}`}
               >
-                <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-100 flex items-center justify-center text-blue-600 dark:text-blue-400">
                   <Download className="w-4 h-4" />
                 </div>
                 <span>Tải dữ liệu xuống (.json)</span>
               </button>
 
               <label className={`w-full flex items-center gap-3 px-5 py-4 border-2 border-dashed ${borderClass} rounded-2xl hover:border-purple-500 hover:text-purple-600 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-all font-semibold cursor-pointer ${textClass}`}>
-                <div className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/40 flex items-center justify-center text-purple-600 dark:text-purple-400">
+                <div className="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-100 flex items-center justify-center text-purple-600 dark:text-purple-400">
                   <Upload className="w-4 h-4" />
                 </div>
                 <span>Phục hồi dữ liệu từ file</span>
@@ -213,7 +207,7 @@ export function SettingsPage({
       </div>
 
       {/* About Box - Trải dài 2 cột */}
-      <div className={`${boxClass} p-8 bg-gradient-to-r from-gray-900 to-gray-800 text-white border-none`}>
+      <div className={`${boxClass} p-8 bg-gradient-to-r from-gray-500 to-gray-500 text-white border-none`}>
         <div className="flex items-center gap-4 mb-4">
           <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-md">
             <Info className="w-6 h-6 text-white" />

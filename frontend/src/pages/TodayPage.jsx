@@ -294,7 +294,7 @@ export function TodayPage({ habits, onCheckIn, onEdit, onDelete, darkMode }) {
               ))}
             </div>
 
-            <div className="divide-y divide-gray-100 dark:divide-gray-700 max-h-[480px] overflow-y-auto">
+            <div className="max-h-[480px] overflow-y-auto">
               {filteredHabits.length === 0 ? (
                 <div className={`px-5 py-8 text-center ${subtext} text-sm`}>Không có thói quen nào</div>
               ) : (
