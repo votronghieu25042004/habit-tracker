@@ -148,7 +148,7 @@ export function StatisticsPage({ habits, darkMode }) {
                 <div className={`text-sm text-center py-10 ${darkMode ? 'text-gray-500' : 'text-gray-400'}`}>Chưa có dữ liệu</div>
               ) : (
                 completionData.map((data, idx) => {
-                  const percentage = data.total > 0 ? (data.completed / data.total) * 100 : 0;
+
                   const barHeight = data.total > 0 ? (data.completed / maxCompleted) * 100 : 0;
 
                   return (

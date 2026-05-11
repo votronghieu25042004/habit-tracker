@@ -27,9 +27,7 @@ export function TodayPage({ habits, onCheckIn, onEdit, onDelete, darkMode }) {
   const totalStreak = habits.reduce((sum, h) => sum + (h.streak || 0), 0);
   const completionRate = habits.length > 0 ? Math.round((completedToday / habits.length) * 100) : 0;
   
-  const bestHabit = habits.length > 0 
-    ? [...habits].sort((a, b) => (b.streak || 0) - (a.streak || 0))[0] 
-    : null;
+
 
   const card = darkMode ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-100';
   const text = darkMode ? 'text-gray-100' : 'text-gray-900';
