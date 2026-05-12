@@ -25,7 +25,7 @@ export default function App() {
   const [editingHabit, setEditingHabit] = useState(null); // Quản lý Habit đang sửa
   const [isLocked, setIsLocked] = useState(false);
 
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000/api";
+  const API_URL = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE_URL || "http://localhost:3000/api";
 
   const handleStartApp = () => {
     localStorage.setItem("habit_tracker_started", "true");
