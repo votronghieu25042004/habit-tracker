@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  # =====================================================
+  # Dịch vụ Frontend (Vite React build → Nginx serve)
+  # =====================================================
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: dockerfile
+      args:
+        # Truyền URL backend vào lúc build Vite (biến VITE_ được bake vào JS bundle)
+        VITE_API_URL: http://localhost:3001/api
+    ports:
+      - "8081:80"   # Truy cập Frontend tại http://localhost:8081
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  # =====================================================
+  # Dịch vụ Backend (Node.js + Express → Supabase cloud)
+  # =====================================================
+  backend:
+    build:
+      context: ./backend
+      dockerfile: dockerfile
+    ports:
+      - "3001:3000" # Truy cập Backend API tại http://localhost:3001
+    env_file:
+      # Đọc SUPABASE_URL và SUPABASE_KEY từ file .env (không commit lên git)
+      - .env
+    environment:
+      - PORT=3000
+    restart: unless-stopped

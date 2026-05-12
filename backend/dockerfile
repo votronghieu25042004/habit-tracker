@@ -1,0 +1,21 @@
+FROM node:18-alpine
+
+# Thiết lập thư mục làm việc trong container
+WORKDIR /app
+
+# Cài đặt các biến môi trường mặc định
+ENV PORT=3000
+
+# Copy file định nghĩa package và cài đặt dependencies trước
+# Giúp tận dụng Docker cache nếu dependencies không đổi
+COPY package*.json ./
+RUN npm install
+
+# Copy toàn bộ mã nguồn vào container
+COPY . .
+
+# Mở cổng mặc định
+EXPOSE $PORT
+
+# Khởi chạy ứng dụng
+CMD ["npm", "start"]

@@ -1,0 +1,24 @@
+# --- Stage 1: Build Vite App ---
+FROM node:20-alpine AS builder
+WORKDIR /app
+
+# Nhận build argument từ docker-compose (VITE_ prefix để Vite nhận ra)
+ARG VITE_API_URL=http://localhost:3000/api
+ENV VITE_API_URL=$VITE_API_URL
+
+COPY package*.json ./
+RUN npm install
+COPY . .
+# Lệnh build của Vite tạo ra thư mục 'dist'
+RUN npm run build
+
+# --- Stage 2: Serve bằng Nginx ---
+FROM nginx:alpine
+# Copy code đã build từ Stage 1 sang thư mục public của Nginx
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Expose port 80
+EXPOSE 80
+
+# Chạy Nginx
+CMD ["nginx", "-g", "daemon off;"]
