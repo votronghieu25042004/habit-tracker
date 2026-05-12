@@ -26,6 +26,11 @@ if (!process.env.VERCEL) {
   }));
 }
 
+// Root route
+app.get('/', (req, res) => {
+  res.send('Chào mừng bạn đến với Habit Tracker API! Hãy truy cập /api/health để kiểm tra trạng thái.');
+});
+
 // API Health Check
 app.get('/api/health', (req, res) => {
   res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
